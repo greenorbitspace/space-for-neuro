@@ -11,40 +11,43 @@ permissions:
   id-token: write
 
 env:
-  BUILD_PATH: "repo"  # the repo is checked out here
+  DIST_DIR: "dist"   # build output folder
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      # Checkout repository (default workspace)
       - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          path: repo  # clones repo into /home/runner/work/space-for-neuro/repo
 
+      # Setup Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
 
+      # Install dependencies
       - name: Install dependencies
-        working-directory: ${{ env.BUILD_PATH }}
         run: npm ci
 
+      # Build the Astro site
       - name: Build Astro site
-        working-directory: ${{ env.BUILD_PATH }}
         run: npm run build
 
+      # Verify build output
       - name: Verify build output
-        run: ls -al ${{ env.BUILD_PATH }}/dist
+        run: ls -al ${{ env.DIST_DIR }}
 
+      # Add .nojekyll to avoid GitHub Pages ignoring files starting with underscores
       - name: Add .nojekyll
-        run: touch ${{ env.BUILD_PATH }}/dist/.nojekyll
+        run: touch ${{ env.DIST_DIR }}/.nojekyll
 
-      - name: Upload artifact
+      # Upload build artifact for GitHub Pages deployment
+      - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ${{ env.BUILD_PATH }}/dist
+          path: ${{ env.DIST_DIR }}
 
   deploy:
     runs-on: ubuntu-latest
@@ -52,6 +55,7 @@ jobs:
     environment:
       name: github-pages
     steps:
+      # Deploy the uploaded artifact to GitHub Pages
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
