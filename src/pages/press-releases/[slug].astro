@@ -1,7 +1,5 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
 import ShareButtons from '../../components/ShareButtons.astro';
 import InsightsGrid from '../../components/InsightsGrid.jsx';
 import { getCollection } from 'astro:content';
@@ -137,7 +135,6 @@ const jsonLd = {
 ---
 
 <Layout title={pageTitle} description={pageDescription} canonical={pageURL}>
-  <Header />
 
   <!-- Hero Section -->
   <section class="relative w-full h-[500px] sm:h-[600px] lg:h-[700px] flex items-center justify-center overflow-hidden">
@@ -190,9 +187,9 @@ const jsonLd = {
 
   <!-- Main content -->
   <main class="py-12 w-full max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-    <article class="prose prose-lg dark:prose-invert max-w-none">
-      <Content />
-    </article>
+  <article class="prose prose-lg prose-invert max-w-none">
+    <Content />
+  </article>
 
     <!-- Inline CTA -->
     <section class="mt-12 bg-accent-600 rounded-lg p-8 text-center text-white shadow-lg">
@@ -213,8 +210,6 @@ const jsonLd = {
   )}
 
   <ShareButtons url={pageURL} title={pageTitle} />
-
-  <Footer />
 
   <!-- Structured Data -->
   <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>

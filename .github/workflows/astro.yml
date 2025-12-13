@@ -21,8 +21,6 @@ jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
-    env:
-      STRIPE_SECRET_KEY: ${{ secrets.STRIPE_SECRET_KEY }}
 
     steps:
       - name: Checkout code
@@ -39,13 +37,13 @@ jobs:
         working-directory: ${{ env.BUILD_PATH }}
 
       - name: Build Astro site
-        run: npx astro build --site "https://greenorbit.space"
+        run: npx astro build --site "https://spaceforneurodiversity.org"
         working-directory: ${{ env.BUILD_PATH }}
 
       - name: Add .nojekyll and CNAME
         run: |
           touch ${{ env.BUILD_PATH }}/dist/.nojekyll
-          echo "greenorbit.space" > ${{ env.BUILD_PATH }}/dist/CNAME
+          echo "spaceforneurodiversity.org" > ${{ env.BUILD_PATH }}/dist/CNAME
 
       - name: Upload build artifact
         uses: actions/upload-pages-artifact@v3

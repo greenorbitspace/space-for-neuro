@@ -1,39 +1,59 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import HeroSection from '../components/HeroSection.astro';
+import Hero from '../components/Hero.astro';
+import About from '../components/About.astro';
+import Contact from '../components/Contact.astro';
 ---
 
-<Layout title="Client Feedback">
-  <Header />
+<Layout title="Terms of Use | Green Orbit Digital" description="Guidelines and rules for accessing and using Green Orbit Digital’s website and services.">
+  <main class="main terms-page">
 
-  <main class="py-12">
-    <HeroSection 
-      title="Share Your Feedback" 
-      description="Your input is invaluable to us. Whether you’ve just wrapped up a project or collaborated on a campaign, we’d love your thoughts. This helps us refine our services and celebrate your success." 
-    />
+    <!-- Hero Section -->
+    <Hero title="Terms of Use" subtitle="Rules and guidelines for using our website and services." />
 
-    <section class="py-16 bg-white dark:bg-primary-500">
-    <div class="max-w-6xl mx-auto px-4">
-<script charset="utf-8" type="text/javascript" src="//js-eu1.hsforms.net/forms/embed/v2.js"></script>
-<script>
-  hbspt.forms.create({
-    portalId: "143471159",
-    formId: "efd1bf54-2b41-4472-94a6-8110e186f325",
-    region: "eu1"
-  });
-</script>
-<div/>
-    </section>
+    <!-- About Section -->
+    <About>
+      <p>Welcome to Green Orbit Digital (“we”, “our”, “us”). By accessing or using our website and services, you agree to comply with these Terms of Use. If you do not agree, please do not use our site or services.</p>
+
+      <h3>1. Acceptance</h3>
+      <p>Using this website indicates your agreement to these Terms of Use and our Privacy Policy.</p>
+
+      <h3>2. Use of Website</h3>
+      <ul>
+        <li>You must use this website for lawful purposes only.</li>
+        <li>Do not interfere with, disrupt, or compromise the security of the site.</li>
+        <li>Do not attempt to copy, reproduce, or distribute our content without prior permission.</li>
+      </ul>
+
+      <h3>3. Intellectual Property</h3>
+      <p>All content, trademarks, logos, and materials on this site are owned by Green Orbit Digital or licensed to us. Unauthorized use is prohibited.</p>
+
+      <h3>4. User Content</h3>
+      <p>If you submit content to our site (e.g., inquiries, forms, feedback), you grant us a worldwide, royalty-free license to use, modify, and display it for any purpose related to our services.</p>
+
+      <h3>5. Third-Party Links</h3>
+      <p>Our site may link to third-party websites. We are not responsible for their content or practices. Visiting linked sites is at your own risk.</p>
+
+      <h3>6. Disclaimers</h3>
+      <p>Our website is provided “as is” without warranties of any kind. We do not guarantee accuracy, reliability, or availability of content or services.</p>
+
+      <h3>7. Limitation of Liability</h3>
+      <p>To the fullest extent permitted by law, Green Orbit Digital is not liable for any damages arising from your use of the website or services.</p>
+
+      <h3>8. Termination</h3>
+      <p>We reserve the right to suspend or terminate access for anyone who violates these Terms of Use.</p>
+
+      <h3>9. Governing Law</h3>
+      <p>These Terms of Use are governed by the laws of the United Kingdom. Any disputes shall be resolved in the courts of the UK.</p>
+
+      <h3>10. Changes</h3>
+      <p>We may update these Terms of Use at any time. Continued use of the website constitutes acceptance of the updated terms.</p>
+
+      <p>If you have questions, please reach out via our <a href="#contact">contact page</a>.</p>
+    </About>
+
+    <!-- Contact Section -->
+    <Contact />
+
   </main>
-    <!-- Full-Width CTA -->
-    <section class="w-full bg-secondary-500 py-16 text-white text-center">
-      <div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-3xl sm:text-4xl font-bold mb-4">Ready to collaborate?</h2>
-        <p class="mb-8 text-lg sm:text-xl text-gray-200">Let’s drive responsible growth for your organisation. Get in touch for a custom package or exploratory call.</p>
-        <a href="/contact" class="inline-block w-full sm:w-auto px-8 py-4 bg-accent-500 hover:bg-accent-600 text-white font-semibold rounded-lg transition text-lg sm:text-xl">Contact Us</a>
-      </div>
-    </section>
-  <Footer />
 </Layout>

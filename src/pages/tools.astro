@@ -1,7 +1,5 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
 import HeroSection from '../components/HeroSection.astro';
 import ToolsList from '../components/ToolsList.jsx';
 import tools from '../data/tools.js';
@@ -14,7 +12,6 @@ const sortedTools = tools.slice().sort((a, b) => a.name.localeCompare(b.name));
   title="Tools"
   description="Explore the digital tools, platforms, and resources used for sustainable marketing and space sector innovation."
 >
-  <Header />
 
   <main class="py-12">
 
@@ -102,5 +99,4 @@ curl -X GET \
         <a href="/contact" class="inline-block w-full sm:w-auto px-8 py-4 bg-accent-500 hover:bg-accent-600 text-white font-semibold rounded-lg transition text-lg sm:text-xl">Contact Us</a>
       </div>
     </section>
-  <Footer />
 </Layout>

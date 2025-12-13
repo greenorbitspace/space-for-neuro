@@ -1,15 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import HeroSection from '../components/HeroSection.astro';
+import Hero from '../components/Hero.astro';
 ---
 
 <Layout title="Privacy Policy">
-  <Header />
 
   <main class="py-8">
-    <HeroSection 
+    <Hero 
       title="Privacy Policy" 
       description="Your privacy matters. Here's how we handle your data at Green Orbit Digital."
     />
@@ -150,5 +147,4 @@ import HeroSection from '../components/HeroSection.astro';
         <a href="/contact" class="inline-block w-full sm:w-auto px-8 py-4 bg-accent-500 hover:bg-accent-600 text-white font-semibold rounded-lg transition text-lg sm:text-xl">Contact Us</a>
       </div>
     </section>
-  <Footer />
 </Layout>

@@ -1,7 +1,5 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
 import HeroSection from '../components/HeroSection.astro';
 
 // Import the React FAQ component
@@ -9,7 +7,6 @@ import FAQSearch from '../components/FAQSearch.jsx';
 ---
 
 <Layout title="Frequently Asked Questions">
-  <Header />
 
   <main class="py-8">
     <HeroSection 
@@ -46,5 +43,4 @@ import FAQSearch from '../components/FAQSearch.jsx';
         <a href="/contact" class="inline-block w-full sm:w-auto px-8 py-4 bg-accent-500 hover:bg-accent-600 text-white font-semibold rounded-lg transition text-lg sm:text-xl">Contact Us</a>
       </div>
     </section>
-  <Footer />
 </Layout>

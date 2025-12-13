@@ -1,8 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
-import HeroSection from '../../components/HeroSection.astro';
+import Hero from '../../components/Hero.astro';
 import InsightsGrid from '../../components/InsightsGrid.jsx';
 import { getCollection } from 'astro:content';
 import organisations from '../../data/organisations.json';
@@ -64,10 +62,9 @@ const sdgMap = SDGs.reduce((acc, sdg) => {
 ---
 
 <Layout title="Blog" description="Explore our latest blog posts on sustainable space operations.">
-  <Header />
 
   <main class="py-12 w-full">
-    <HeroSection
+    <Hero
       title="Blog"
       description="Explore our latest blog posts on sustainability, space, and innovation."
     />
@@ -93,6 +90,4 @@ const sdgMap = SDGs.reduce((acc, sdg) => {
       </div>
     </section>
   </main>
-
-  <Footer />
 </Layout>

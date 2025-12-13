@@ -1,8 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import HeroSection from '../components/HeroSection.astro';
+import Hero from '../components/Hero.astro';
 import InsightsList from '../components/InsightsList.jsx';
 
 import { getCollection } from 'astro:content';
@@ -71,10 +69,9 @@ allInsights = allInsights.map(item => {
 ---
 
 <Layout title="Insights" description="Blogs, news, and resources from across Green Orbit Digital.">
-  <Header />
 
   <main class="py-12 w-full">
-      <HeroSection
+      <Hero
         title="Insights"
         description="Explore the latest analysis, resources, and updates across sustainability and the space sector."
       />
@@ -98,5 +95,4 @@ allInsights = allInsights.map(item => {
     </section>
   </main>
 
-  <Footer />
 </Layout>

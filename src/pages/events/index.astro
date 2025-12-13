@@ -1,8 +1,6 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import Header from "../../components/Header.astro";
-import Footer from "../../components/Footer.astro";
-import HeroSection from "../../components/HeroSection.astro";
+import Hero from "../../components/Hero.astro";
 import EventsList from "../../components/EventFilters.jsx";
 
 let preRenderedEvents = [];
@@ -17,10 +15,9 @@ try {
 ---
 
 <Layout title="Upcoming Events">
-  <Header />
 
   <main class="py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <HeroSection
+    <Hero
       title="Upcoming Events"
       description="Discover all space, sustainability, and marketing events in our orbit"
     />
@@ -29,5 +26,4 @@ try {
     <EventsList preRenderedEvents={preRenderedEvents} client:load />
   </main>
 
-  <Footer />
 </Layout>

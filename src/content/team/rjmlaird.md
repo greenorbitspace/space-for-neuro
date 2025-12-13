@@ -9,10 +9,10 @@ titles: "MPhys (Hons) CMktr, MCIPR, MinstP"
 
 # Description and summary
 description: >
-  Chartered Marketer and Founder of Green Orbit Digital, driving sustainable marketing strategies for the space industry. Passionate about data-driven growth and responsible innovation.
+  Chartered Marketer, driving sustainable marketing strategies for the space industry. Passionate about data-driven growth and responsible innovation.
 
 summary: >
-  Ryan Laird is a graduate physicist and chartered marketer with over a decade of experience in communicating space and science to diverse audiences. As the Director of Green Orbit Digital, Ryan leads sustainable marketing initiatives that help space organisations grow responsibly and transparently. His career spans the European Space Agency, content strategy, partner engagement, and sustainable storytelling — all grounded in his commitment to environmental stewardship and a greener future.
+  Ryan is a graduate physicist and chartered marketer with over a decade of experience in communicating space and science to diverse audiences. His career spans the European Space Agency, content strategy, partner engagement, and sustainable storytelling.
 
 quote: >
   Marketing for the space sector should orbit around sustainability — not just performance.

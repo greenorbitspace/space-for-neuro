@@ -8,9 +8,7 @@ pubdate: '2024-12-30T16:45:00.000+00:00'
 featuredImage: "/images/space-environment.jpg"
 seniority_level: "Senior"
 description: >
-  We're looking for an experienced frontend developer to help us build
-  beautiful, responsive, and accessible user interfaces for our SaaS platform.
-  Join a passionate team driving innovation and shaping the future of sustainable tech.
+  "Join our team to help advance sustainable space communications."
 responsibilities:
   - Develop and maintain scalable frontend applications using React and TypeScript
   - Collaborate closely with design and backend teams to deliver seamless user experiences

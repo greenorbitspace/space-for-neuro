@@ -1,310 +1,89 @@
 ---
-// Header.astro
-import Logo from '../assets/greenorbit-long.svg';
+--- 
+<header id="header" class="header d-flex align-items-center fixed-top">
+  <div class="header-container container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
 
-const insightsPages = [
-  { 
-    text: "Blog", 
-    url: "/blog",
-    description: "Thought leadership articles and expert commentary on the space sector and sustainable marketing." 
-  },
-  { 
-    text: "News", 
-    url: "/news",
-    description: "Latest updates, announcements, and industry developments relevant to our work and partners." 
-  },
-  { 
-    text: "Press Releases", 
-    url: "/press-releases",
-    description: "Official statements and media communications from Green Orbit Digital." 
-  },
-  { 
-    text: "Events", 
-    url: "/events",
-    description: "Information on upcoming webinars, conferences, and networking opportunities in the space sector." 
-  },
-];
-
-const whoWeWorkWithPages = [
-  { 
-    text: "Academia", 
-    url: "/who-we-work-with/academia",
-    description: "Collaborating with universities and research institutions to advance space sector knowledge." 
-  },
-  { 
-    text: "Government & Public Sector", 
-    url: "/who-we-work-with/government-public-sector",
-    description: "Supporting policy development, public engagement, and sustainable initiatives in government projects." 
-  },
-  { 
-    text: "Investors", 
-    url: "/who-we-work-with/investors",
-    description: "Providing insights, research, and marketing strategies to inform investment decisions." 
-  },
-  { 
-    text: "Corporates & Industry", 
-    url: "/who-we-work-with/corporates-industry",
-    description: "Partnering with established businesses to enhance brand impact and sector engagement." 
-  },
-  { 
-    text: "Startups & Scaleups", 
-    url: "/who-we-work-with/startups-scaleups",
-    description: "Helping emerging companies grow with data-driven strategies and creative marketing solutions." 
-  },
-];
-
-const sectorsPages = [
-  { text: "Agriculture", url: "/sectors/agriculture", description: "We help agricultural organisations adopt sustainable practices, leverage data insights, and reach new markets effectively." },
-  { text: "Aviation & Drones", url: "/sectors/aviation-drones", description: "Supporting aviation and drone companies with strategic marketing, stakeholder engagement, and brand growth." },
-  { text: "Biodiversity", url: "/sectors/biodiversity", description: "We assist conservation groups in raising awareness, measuring impact, and communicating successes to stakeholders." },
-  { text: "Climate Services", url: "/sectors/climate-services", description: "Helping climate service providers share insights, engage with clients, and drive actionable environmental outcomes." },
-  { text: "Energy", url: "/sectors/energy", description: "Partnering with renewable and traditional energy companies to communicate innovation, sustainability, and sector leadership." },
-  { text: "Environment", url: "/sectors/environment", description: "Supporting environmental organisations in advocacy, reporting, and impactful communications campaigns." },
-  { text: "Finance", url: "/sectors/finance", description: "Helping financial institutions convey sustainability commitments, ESG credentials, and sector expertise." },
-  { text: "Fisheries", url: "/sectors/fisheries", description: "Working with fisheries to promote sustainable practices, stakeholder engagement, and transparent communications." },
-  { text: "Forestry", url: "/sectors/forestry", description: "Helping forestry organisations communicate sustainable management, conservation efforts, and project impact." },
-  { text: "Health", url: "/sectors/health", description: "Supporting healthcare and public health organisations with data-driven campaigns and community engagement." },
-  { text: "Humanitarian Aid", url: "/sectors/humanitarian-aid", description: "Helping NGOs and aid organisations amplify impact, communicate programs, and engage donors effectively." },
-  { text: "Infrastructure", url: "/sectors/infrastructure", description: "Partnering with infrastructure organisations to showcase sustainable projects, innovation, and community impact." },
-  { text: "Maritime", url: "/sectors/maritime", description: "Supporting maritime companies in highlighting sustainable shipping, ocean initiatives, and industry leadership." },
-  { text: "Tourism", url: "/sectors/tourism", description: "Helping tourism boards and operators promote responsible travel, sustainability initiatives, and visitor engagement." },
-  { text: "Transport", url: "/sectors/transport", description: "Partnering with transport organisations to communicate innovation, sustainability, and operational excellence." },
-  { text: "Urban Development", url: "/sectors/urban-development", description: "Supporting urban development projects with messaging around sustainability, smart cities, and stakeholder engagement." },
-];
-
-const servicesPages = [
-  { 
-    text: "Strategy & Insight", 
-    url: "/services/strategy-insight",
-    description: "Data-driven strategy, market research, and insight to guide your space sector initiatives."
-  },
-  { 
-    text: "Creative & Content", 
-    url: "/services/creative-content",
-    description: "Brand storytelling, content creation, and campaigns that resonate with your audience."
-  },
-  { 
-    text: "Engagement & Learning", 
-    url: "/services/engagement-learning",
-    description: "Workshops, training, and engagement programmes to foster knowledge and impact."
-  },
-];
----
-<header class="fixed w-full bg-white/90 dark:bg-secondary-500 backdrop-blur-xs z-50 py-4 transition-colors duration-300">
-  <div class="container-custom flex items-center justify-between">
-
-    <!-- Logo -->
-    <a href="/" class="flex items-center" aria-label="Go to homepage">
-      <Logo class="h-10 md:h-24 w-auto max-w-[200px] sm:max-w-[250px] lg:max-w-[300px]" />
+    <!-- Logo / Site Name -->
+    <a href="/" class="logo d-flex align-items-center me-auto me-xl-0">
+      <h1 class="sitename">Space for Neurodiversity</h1>
     </a>
 
-    <!-- Desktop Nav -->
-    <nav class="hidden md:flex items-center space-x-8">
-      <a href="/about" class="text-secondary-600 hover:text-accent-500 dark:text-white dark:hover:text-accent-500 font-medium transition-colors">About Us</a>
+    <!-- Main Navigation -->
+    <nav id="navmenu" class="navmenu" aria-label="Main Navigation">
+      <ul>
+        <li><a href="#hero" class="active">Home</a></li>
 
-      <!-- Services Dropdown -->
-      <div x-data="{ open: false }" class="relative">
-        <button 
-          @mouseenter="open = true" @mouseleave="open = false"
-          class="text-secondary-600 hover:text-accent-500 dark:text-white dark:hover:text-accent-500 font-medium transition-colors flex items-center gap-1"
-        >
-          Services
-          <svg class="w-4 h-4 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-          </svg>
-        </button>
-        <div 
-          x-show="open" 
-          @mouseenter="open = true" @mouseleave="open = false"
-          x-transition
-          class="absolute mt-2 w-64 bg-white dark:bg-secondary-900 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 z-50 p-4 flex flex-col space-y-3"
-        >
-          {servicesPages.map(page => (
-            <a href={page.url} class="block px-2 py-2 rounded-md hover:bg-secondary-100 dark:hover:bg-secondary-800">
-              <p class="font-medium text-sm text-secondary-700 dark:text-white">{page.text}</p>
-              <p class="text-xs text-secondary-500 dark:text-secondary-300 mt-1">{page.description}</p>
-            </a>
-          ))}
-        </div>
-      </div>
+        <!-- About -->
+        <li class="dropdown">
+          <a href="#about">
+            <span>About</span>
+            <i class="bi bi-chevron-down toggle-dropdown"></i>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="/about/mission">Our Mission</a></li>
+            <li><a href="/about/why-neurodiversity">Why Neurodiversity in Space</a></li>
+            <li><a href="/about/team">Our Team & Advisors</a></li>
+            <li><a href="/about/partners">Partners</a></li>
+          </ul>
+        </li>
 
-      <a href="/sustainability" class="text-secondary-600 hover:text-accent-500 dark:text-white dark:hover:text-accent-500 font-medium transition-colors">Sustainability</a>
+        <!-- What We Do -->
+        <li class="dropdown">
+          <a href="#programmes">
+            <span>What We Do</span>
+            <i class="bi bi-chevron-down toggle-dropdown"></i>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="/programmes/research">Research & Insight</a></li>
+            <li><a href="/programmes/advocacy">Advocacy & Policy</a></li>
+            <li><a href="/programmes/education">Education & Awareness</a></li>
+            <li><a href="/programmes/workplace">Inclusive Workplaces</a></li>
+          </ul>
+        </li>
 
-      <!-- Who We Work With Dropdown -->\
-      <div x-data="{ open: false }" class="relative">
-        <button 
-          @mouseenter="open = true" @mouseleave="open = false"
-          class="text-secondary-600 hover:text-accent-500 dark:text-white dark:hover:text-accent-500 font-medium transition-colors flex items-center gap-1"
-        >
-          Who We Work With
-          <svg class="w-4 h-4 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-          </svg>
-        </button>
-        <div 
-          x-show="open" 
-          @mouseenter="open = true" @mouseleave="open = false"
-          x-transition
-          class="absolute mt-2 w-64 bg-white dark:bg-secondary-900 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 z-50 p-4 flex flex-col space-y-3"
-        >
-          {whoWeWorkWithPages.map(page => (
-            <a href={page.url} class="block px-2 py-2 rounded-md hover:bg-secondary-100 dark:hover:bg-secondary-800">
-              <p class="font-medium text-sm text-secondary-700 dark:text-white">{page.text}</p>
-              <p class="text-xs text-secondary-500 dark:text-secondary-300 mt-1">{page.description}</p>
-            </a>
-          ))}
-        </div>
-      </div>
+        <!-- Resources -->
+        <li class="dropdown">
+          <a href="#resources">
+            <span>Resources</span>
+            <i class="bi bi-chevron-down toggle-dropdown"></i>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="/resources/guides">Guides & Toolkits</a></li>
+            <li><a href="/resources/reports">Reports & Publications</a></li>
+            <li><a href="/resources/lived-experiences">Lived Experiences</a></li>
+            <li><a href="/resources/events">Events & Talks</a></li>
+          </ul>
+        </li>
 
-<!-- Sectors Dropdown -->
-<div x-data="{ open: false }" class="relative">
-  <button 
-    @mouseenter="open = true" 
-    @mouseleave="open = false"
-    class="text-secondary-600 hover:text-accent-500 dark:text-white dark:hover:text-accent-500 font-medium transition-colors flex items-center gap-1"
-  >
-    Sectors
-    <svg class="w-4 h-4 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-    </svg>
-  </button>
+        <!-- Get Involved -->
+        <li class="dropdown">
+          <a href="#get-involved">
+            <span>Get Involved</span>
+            <i class="bi bi-chevron-down toggle-dropdown"></i>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="/get-involved/individuals">For Individuals</a></li>
+            <li><a href="/get-involved/organisations">For Organisations</a></li>
+            <li><a href="/get-involved/researchers">For Researchers</a></li>
+            <li><a href="/get-involved/partners">Partner With Us</a></li>
+          </ul>
+        </li>
 
-  <div
-    x-show="open"
-    @mouseenter="open = true"
-    @mouseleave="open = false"
-    x-transition.opacity.duration.150ms
-    class="absolute mt-3 w-72 bg-white dark:bg-secondary-900 rounded-xl shadow-xl ring-1 ring-black/10 dark:ring-white/10 z-50 p-4 flex flex-col"
-  >
-    {sectorsPages.map(page => (
-      <a 
-        href={page.url} 
-        class="block px-3 py-2.5 rounded-lg transition-all
-               hover:bg-secondary-100 dark:hover:bg-secondary-800
-               hover:translate-x-1 hover:text-accent-500"
-      >
-        <p class="font-medium text-[0.95rem] text-secondary-700 dark:text-white leading-tight">
-          {page.text}
-        </p>
-      </a>
-    ))}
-  </div>
-</div>
+        <li><a href="/news">News & Insights</a></li>
 
-      <!-- Insights Dropdown -->
-      <div x-data="{ open: false }" class="relative">
-        <button 
-          @mouseenter="open = true" @mouseleave="open = false"
-          class="text-secondary-600 hover:text-accent-500 dark:text-white dark:hover:text-accent-500 font-medium transition-colors flex items-center gap-1"
-        >
-          Insights
-          <svg class="w-4 h-4 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-          </svg>
-        </button>
-        <div 
-          x-show="open" 
-          @mouseenter="open = true" @mouseleave="open = false"
-          x-transition
-          class="absolute mt-2 w-64 bg-white dark:bg-secondary-900 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 z-50 p-4 flex flex-col space-y-3"
-        >
-          {insightsPages.map(page => (
-            <a href={page.url} class="block px-2 py-2 rounded-md hover:bg-secondary-100 dark:hover:bg-secondary-800">
-              <p class="font-medium text-sm text-secondary-700 dark:text-white">{page.text}</p>
-              <p class="text-xs text-secondary-500 dark:text-secondary-300 mt-1">{page.description}</p>
-            </a>
-          ))}
-        </div>
-      </div>
+        <!-- Mobile CTA -->
+        <li class="d-xl-none mobile-cta">
+          <a class="btn-getstarted-mobile" href="/contact">Contact Us</a>
+        </li>
+      </ul>
 
+      <i class="mobile-nav-toggle d-xl-none bi bi-list" aria-label="Toggle Navigation"></i>
     </nav>
 
-    <!-- Right Actions -->
-    <div class="flex items-center space-x-4">
-      <!-- Dark Mode Toggle -->
-      <button x-on:click="darkMode = !darkMode" aria-label="Toggle dark mode" class="p-2 rounded-full text-secondary-500 hover:text-secondary-700 dark:text-white dark:hover:text-secondary-200 focus:outline-hidden focus:ring-2 focus:ring-primary-500">
-        <svg x-show="!darkMode" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-        </svg>
-        <svg x-show="darkMode" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="white">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
-        </svg>
-      </button>
+    <!-- Desktop CTA -->
+    <a class="btn-getstarted d-none d-xl-inline-flex" href="/contact">
+      <strong>Contact Us</strong>
+    </a>
 
-      <a href="/contact" class="hidden sm:inline-flex btn-primary">Contact Us</a>
-
-      <!-- Mobile Menu -->
-      <div x-data="{ open: false, showServices: false, showInsights: false, showWhoWeWorkWith: false }" class="md:hidden relative">
-        <button @click="open = !open" class="p-2 rounded-md text-white dark:text-white focus:outline-hidden focus:ring-2 focus:ring-primary-500">
-          <svg x-show="!open" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="white">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
-          <svg x-show="open" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="white">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-          </svg>
-        </button>
-
-        <div x-show="open" x-transition class="absolute right-0 mt-2 w-64 bg-white dark:bg-secondary-900 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 z-50 p-2 flex flex-col space-y-1" x-cloak>
-          <a href="/about" class="block px-4 py-2 text-sm text-secondary-700 dark:text-white hover:bg-secondary-100 dark:hover:bg-secondary-800">About Us</a>
-
-          <!-- Mobile Services -->
-          <button @click="showServices = !showServices" class="w-full text-left px-4 py-2 text-sm text-secondary-700 dark:text-white hover:bg-secondary-100 dark:hover:bg-secondary-800 flex justify-between items-center">
-            Services
-            <svg :class="{ 'rotate-180': showServices }" class="w-4 h-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-            </svg>
-          </button>
-          <div x-show="showServices" x-transition class="pl-4 flex flex-col space-y-2">
-            {servicesPages.map(page => (
-              <a href={page.url} class="block px-4 py-2 text-sm text-secondary-700 dark:text-white hover:bg-secondary-100 dark:hover:bg-secondary-800">
-                <p class="font-medium">{page.text}</p>
-                <p class="text-xs text-secondary-500 dark:text-secondary-300">{page.description}</p>
-              </a>
-            ))}
-          </div>
-
-          <!-- Mobile Who We Work With -->
-          <button @click="showWhoWeWorkWith = !showWhoWeWorkWith" class="w-full text-left px-4 py-2 text-sm text-secondary-700 dark:text-white hover:bg-secondary-100 dark:hover:bg-secondary-800 flex justify-between items-center">
-            Who We Work With
-            <svg :class="{ 'rotate-180': showWhoWeWorkWith }" class="w-4 h-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-            </svg>
-          </button>
-          <div x-show="showWhoWeWorkWith" x-transition class="pl-4 flex flex-col space-y-2">
-            {whoWeWorkWithPages.map(page => (
-              <a href={page.url} class="block px-4 py-2 text-sm text-secondary-700 dark:text-white hover:bg-secondary-100 dark:hover:bg-secondary-800">{page.text}</a>
-            ))}
-          </div>
-
-          <!-- Mobile Sectors -->
-          <button @click="showSectors = !showSectors" class="w-full text-left px-4 py-2 text-sm text-secondary-700 dark:text-white hover:bg-secondary-100 dark:hover:bg-secondary-800 flex justify-between items-center">
-            Sectors
-            <svg :class="{ 'rotate-180': showSectors }" class="w-4 h-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-            </svg>
-          </button>
-          <div x-show="showSectors" x-transition class="pl-4 flex flex-col space-y-2">
-            {sectorsPages.map(page => (
-              <a href={page.url} class="block px-4 py-2 text-sm text-secondary-700 dark:text-white hover:bg-secondary-100 dark:hover:bg-secondary-800">{page.text}</a>
-            ))}
-          </div>
-
-          <!-- Mobile Insights -->
-          <button @click="showInsights = !showInsights" class="w-full text-left px-4 py-2 text-sm text-secondary-700 dark:text-white hover:bg-secondary-100 dark:hover:bg-secondary-800 flex justify-between items-center">
-            Insights
-            <svg :class="{ 'rotate-180': showInsights }" class="w-4 h-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-            </svg>
-          </button>
-          <div x-show="showInsights" x-transition class="pl-4 flex flex-col space-y-2">
-            {insightsPages.map(page => (
-              <a href={page.url} class="block px-4 py-2 text-sm text-secondary-700 dark:text-white hover:bg-secondary-100 dark:hover:bg-secondary-800">{page.text}</a>
-            ))}
-          </div>
-
-          <a href="/contact" class="block px-4 py-2 text-sm text-secondary-700 dark:text-white hover:bg-secondary-100 dark:hover:bg-secondary-800">Contact</a>
-        </div>
-      </div>
-    </div>
   </div>
 </header>

@@ -1,7 +1,5 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
 import EventDescription from '../../components/EventDescription.jsx';
 import events from '../../data/events.json';
 import slugify from '../../utils/slugify.js';
@@ -57,7 +55,6 @@ const eventSchema = buildEventSchema(normalizedEvent);
 ---
 
 <Layout title={normalizedEvent.title} schema={[eventSchema]}>
-  <Header />
 
   <!-- Hero Section -->
   <section class="relative w-full h-[500px] sm:h-[600px] lg:h-[700px] flex items-center justify-center overflow-hidden">
@@ -161,11 +158,10 @@ const eventSchema = buildEventSchema(normalizedEvent);
     <div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
       <h2 class="text-2xl sm:text-3xl font-bold mb-4">Enjoyed this insight?</h2>
       <p class="mb-6">Subscribe to our newsletter for updates on sustainable space operations and research.</p>
-      <a href="/subscribe" class="inline-block bg-white text-accent-600 font-semibold px-6 py-3 rounded-md hover:bg-gray-100 transition">
+      <a href="/newsletter" class="inline-block bg-white text-accent-600 font-semibold px-6 py-3 rounded-md hover:bg-gray-100 transition">
         Subscribe Now
       </a>
     </div>
   </section>
 
-  <Footer />
 </Layout>

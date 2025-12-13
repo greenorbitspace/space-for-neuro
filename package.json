@@ -1,21 +1,21 @@
 {
-  "name": "green-orbit-digital",
+  "name": "spaceforneurodiversity",
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "Sustainable digital marketing site for the space sector by Green Orbit Digital",
+  "description": "Empowering Neurodiversity in Space",
   "author": "Ryan Laird",
   "license": "MIT",
-  "homepage": "https://greenorbit.space",
+  "homepage": "https://spaceforneurodiversity.org",
   "repository": {
     "type": "git",
-    "url": "https://github.com/greenorbitspace/web.git"
+    "url": "https://github.com/greenorbitspace/space-for-neuro.git"
   },
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "postbuild": "echo 'greenorbit.space' > dist/CNAME",
+    "postbuild": "echo 'spaceforneurodiversity.org' > dist/CNAME",
     "deploy": "npm run build && npm run postbuild && gh-pages -d dist -b gh-pages"
   },
   "dependencies": {
@@ -38,6 +38,8 @@
     "@types/react-dom": "^19.1.7",
     "alpinejs": "^3.14.9",
     "bibtex-parse-js": "^0.0.23",
+    "blueimp-md5": "^2.19.0",
+    "chart.js": "^4.5.1",
     "chrome-launcher": "^1.2.0",
     "date-fns": "^4.1.0",
     "devalue": ">=5.3.2",

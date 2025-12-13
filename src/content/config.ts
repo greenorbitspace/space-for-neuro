@@ -6,8 +6,8 @@ const DEFAULT_FEATURED_IMAGE = '/images/default-featured.jpg';
 
 /** Base schema for general content types */
 const baseSchema = z.object({
-  title: z.string().min(5),
-  description: z.string().max(160).optional().default(''),
+  title: z.string().min(4),
+  description: z.string().max(300).optional().default(''),
   summary: z.string().max(300).optional().default(''),
   pubdate: z
     .string()
@@ -129,15 +129,25 @@ export const collections = {
   blog: defineCollection({ schema: baseSchema }),
   news: defineCollection({ schema: baseSchema }),
   resources: defineCollection({ schema: baseSchema }),
-  'press-releases': defineCollection({ schema: baseSchema }),
+  "press-releases": defineCollection({ schema: baseSchema }),
   tools: defineCollection({ schema: baseSchema }),
   insights: defineCollection({ schema: baseSchema }),
-  'space-sustainability': defineCollection({ schema: baseSchema }),
-  caseStudies: defineCollection({ schema: caseStudySchema }),
+  "space-sustainability": defineCollection({ schema: baseSchema }),
+  campaigns: defineCollection({ schema: baseSchema }),
+  careers: defineCollection({ schema: baseSchema }),
+  domains: defineCollection({ schema: baseSchema }),
+  earth: defineCollection({ schema: baseSchema }),
+  pledges: defineCollection({ schema: baseSchema }),
+  team: defineCollection({ schema: baseSchema }),
+  training: defineCollection({ schema: baseSchema }),
+  values: defineCollection({ schema: baseSchema }),
+
+  "case-studies": defineCollection({ schema: caseStudySchema }),
   sectors: defineCollection({ schema: sectorSchema }),
-  'global-challenges': defineCollection({ schema: globalChallengeSchema }),
-  'space-apps': defineCollection({ schema: spaceAppSchema }),
-  'service-areas': defineCollection({ schema: serviceAreaSchema }), // ✅ NEW
+  "global-challenges": defineCollection({ schema: globalChallengeSchema }),
+  "space-applications": defineCollection({ schema: spaceAppSchema }),
+  "service-areas": defineCollection({ schema: serviceAreaSchema }), // optional if used
+  organisations: defineCollection({ schema: baseSchema }),
 };
 
 /**

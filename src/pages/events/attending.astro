@@ -1,7 +1,5 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
 import HeroSection from '../../components/HeroSection.astro';
 import EventsList from '../../components/EventFilters.jsx';
 
@@ -17,8 +15,6 @@ const attendingEvents = eventsData
 ---
 
 <Layout title="Meet Us at Events" description="See the events where you can meet the Green Orbit team. Let us know if you are coming and book a time to connect.">
-  <Header />
-
   <main class="py-12">
 
     <!-- Hero Section -->
@@ -63,5 +59,4 @@ const attendingEvents = eventsData
 
   </main>
 
-  <Footer />
 </Layout>

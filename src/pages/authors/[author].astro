@@ -1,8 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
-import HeroSection from '../../components/HeroSection.astro';
+import Hero from '../../components/Hero.astro';
 import InsightsList from '../../components/InsightsList.jsx';
 import SocialLinks from '../../components/SocialLinks.astro';
 import { getCollection } from 'astro:content';
@@ -92,11 +90,9 @@ const allInsights = authorPosts;
   title={`Insights by ${authorData.title}`}
   description={`All articles, news, and resources by ${authorData.title}`}
 >
-  <Header />
-
   <!-- Hero + Profile -->
   <main class="py-10 max-w-6xl mx-auto px-4">
-    <HeroSection
+    <Hero
       title={`Insights by ${authorData.title}`}
       description="Explore all articles, news, and resources from our team."
     />
@@ -144,5 +140,4 @@ const allInsights = authorPosts;
         <a href="/contact" class="inline-block w-full sm:w-auto px-8 py-4 bg-accent-500 hover:bg-accent-600 text-white font-semibold rounded-lg transition text-lg sm:text-xl">Contact Us</a>
       </div>
     </section>
-  <Footer />
 </Layout>

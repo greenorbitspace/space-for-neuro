@@ -92,7 +92,7 @@ export default function InsightsGrid({ posts = [] }) {
         return (
           <li
             key={slug}
-            className="border border-accent-500 rounded-lg overflow-hidden hover:shadow-xl transition bg-white dark:bg-gray-800/40"
+            className="border border-accent-500 rounded-lg overflow-hidden hover:shadow-xl transition bg-primary-500 dark:bg-primary-500"
           >
             {/* Featured image link */}
             <a href={`/${collection}/${slug}`} className="block overflow-hidden rounded-t-lg">
