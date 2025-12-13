@@ -4,7 +4,7 @@ import react from '@astrojs/react';
 import tailwind from '@astrojs/tailwind';
 
 export default defineConfig({
-  site: 'https://impactorbit.co',
+  site: 'https://spaceforneurodiversity.org',
   base: '/',
   integrations: [
     alpinejs(),
