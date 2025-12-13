@@ -11,7 +11,7 @@ permissions:
   id-token: write
 
 env:
-  BUILD_PATH: "."  # root of repo
+  BUILD_PATH: "repo"  # the repo is checked out here
 
 jobs:
   build:
@@ -19,6 +19,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          path: repo  # clones repo into /home/runner/work/space-for-neuro/repo
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -36,13 +38,13 @@ jobs:
       - name: Verify build output
         run: ls -al ${{ env.BUILD_PATH }}/dist
 
+      - name: Add .nojekyll
+        run: touch ${{ env.BUILD_PATH }}/dist/.nojekyll
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: ${{ env.BUILD_PATH }}/dist
-
-      - name: Add .nojekyll
-        run: touch dist/.nojekyll
 
   deploy:
     runs-on: ubuntu-latest
