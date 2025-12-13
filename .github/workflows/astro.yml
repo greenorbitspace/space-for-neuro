@@ -10,6 +10,9 @@ permissions:
   pages: write
   id-token: write
 
+env:
+  BUILD_PATH: "."  # root of repo
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -17,24 +20,26 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup Node
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
 
       - name: Install dependencies
+        working-directory: ${{ env.BUILD_PATH }}
         run: npm ci
 
       - name: Build Astro site
+        working-directory: ${{ env.BUILD_PATH }}
         run: npm run build
 
       - name: Verify build output
-        run: ls -al dist
+        run: ls -al ${{ env.BUILD_PATH }}/dist
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
+          path: ${{ env.BUILD_PATH }}/dist
 
   deploy:
     runs-on: ubuntu-latest
